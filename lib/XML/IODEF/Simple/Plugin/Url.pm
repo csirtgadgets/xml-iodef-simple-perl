@@ -53,14 +53,13 @@ sub convert {
     
     my $domain;
 
-    my $port = 80;
-    if($address =~ /^(https?\:\/\/)?([A-Za-z0-9-\.]+\.[a-z]{2,5})(:\d+)\/?/){
+    my $port = ($address =~ /^https/) ? 443 : 80;
+    if($address =~ /^(https?\:\/\/)?([A-Za-z0-9-\.]+\.[a-z]{2,5})(:\d+)?/){
         $domain = $2;
-        $port = $3;
-    } elsif($address =~ /^(https?\:\/\/)?($RE{'net'}{'IPv4'})(:\d+)?\//) {
+        $port = $3 if($3);
+    } elsif($address =~ /^(https?\:\/\/)?($RE{'net'}{'IPv4'})(:\d+)?\/?/) {
         $domain = $2;
-        $port = $3;
-        $port = 443 unless($port);
+        $port = $3 if($3);
     }
     $port =~ s/^://;
     unless($info->{'portlist'}){
