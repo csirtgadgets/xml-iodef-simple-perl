@@ -178,8 +178,6 @@ Wes Young, E<lt>wes@barely3am.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
- Copyright 2011 The Trustees of Indiana University, indiana.edu
- Copyright 2011 REN-ISAC, ren-isac.net
  Copyright 2011 Wes Young, claimid.com/wesyoung
 
  This library is free software; you can redistribute it and/or modify
